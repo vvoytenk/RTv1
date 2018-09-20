@@ -1,0 +1,5 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/vvoytenk/CLionProjects/rtv
+-- SDL2;SDL2_image
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/vvoytenk/CLionProjects/rtv/cmake-build-debug
