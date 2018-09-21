@@ -134,20 +134,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/scene3.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+                <state relative-caret-position="495">
+                  <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/scene4.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="495">
-                  <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+                <state relative-caret-position="645">
+                  <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
                 </state>
               </provider>
             </entry>
@@ -232,8 +232,8 @@
         <option value="$PROJECT_DIR$/rtv.h" />
         <option value="$PROJECT_DIR$/intersection.c" />
         <option value="$PROJECT_DIR$/render.c" />
-        <option value="$PROJECT_DIR$/scene4.c" />
         <option value="$PROJECT_DIR$/scene3.c" />
+        <option value="$PROJECT_DIR$/scene4.c" />
       </list>
     </option>
   </component>
@@ -244,7 +244,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="454" />
+    <option name="x" value="358" />
     <option name="y" value="23" />
     <option name="width" value="2060" />
     <option name="height" value="1337" />
@@ -350,15 +350,15 @@
       <workItem from="1537376000755" duration="301000" />
       <workItem from="1537436948101" duration="4322000" />
       <workItem from="1537455570423" duration="10624000" />
-      <workItem from="1537525271416" duration="4921000" />
+      <workItem from="1537525271416" duration="5526000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90706000" />
+    <option name="totallyTimeSpent" value="91311000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="454" y="23" width="2060" height="1337" extended-state="0" />
+    <frame x="358" y="23" width="2060" height="1337" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.118434094" />
@@ -514,17 +514,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scene4.c">
+    <entry file="file://$PROJECT_DIR$/scene3.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
-          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scene3.c">
+    <entry file="file://$PROJECT_DIR$/scene4.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+        <state relative-caret-position="645">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>
