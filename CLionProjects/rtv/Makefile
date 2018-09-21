@@ -16,7 +16,7 @@ CFLAGS = #-Wall -Wextra -Werror
 NAME = RTv1
 PREFIX = $(PWD)/build
 
-SRC =  main.c usage.c init.c scene.c scene1.c color.c vectors.c render.c other.c scene2.c intersection.c
+SRC =  main.c usage.c init.c scene.c scene1.c color.c vectors.c render.c other.c scene2.c intersection.c scene3.c scene4.c
 
 .PHONY: re clean fclean all libft
 

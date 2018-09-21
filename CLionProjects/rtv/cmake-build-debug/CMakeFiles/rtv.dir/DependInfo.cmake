@@ -13,6 +13,8 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/vvoytenk/CLionProjects/rtv/scene.c" "/Users/vvoytenk/CLionProjects/rtv/cmake-build-debug/CMakeFiles/rtv.dir/scene.c.o"
   "/Users/vvoytenk/CLionProjects/rtv/scene1.c" "/Users/vvoytenk/CLionProjects/rtv/cmake-build-debug/CMakeFiles/rtv.dir/scene1.c.o"
   "/Users/vvoytenk/CLionProjects/rtv/scene2.c" "/Users/vvoytenk/CLionProjects/rtv/cmake-build-debug/CMakeFiles/rtv.dir/scene2.c.o"
+  "/Users/vvoytenk/CLionProjects/rtv/scene3.c" "/Users/vvoytenk/CLionProjects/rtv/cmake-build-debug/CMakeFiles/rtv.dir/scene3.c.o"
+  "/Users/vvoytenk/CLionProjects/rtv/scene4.c" "/Users/vvoytenk/CLionProjects/rtv/cmake-build-debug/CMakeFiles/rtv.dir/scene4.c.o"
   "/Users/vvoytenk/CLionProjects/rtv/usage.c" "/Users/vvoytenk/CLionProjects/rtv/cmake-build-debug/CMakeFiles/rtv.dir/usage.c.o"
   "/Users/vvoytenk/CLionProjects/rtv/vectors.c" "/Users/vvoytenk/CLionProjects/rtv/cmake-build-debug/CMakeFiles/rtv.dir/vectors.c.o"
   )

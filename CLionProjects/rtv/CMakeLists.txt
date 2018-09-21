@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 90)
 
 set(SOURCE_FILES
         main.c usage.c init.c scene.c scene1.c color.c vectors.c render.c other.c scene2.c
-        intersection.c )
+        intersection.c  scene3.c scene4.c)
 
 
 

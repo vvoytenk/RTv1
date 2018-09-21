@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /Users/vvoytenk/CLionProjects/rtv/cmake-build-debug
 CMakeFiles/rtv.dir/all: libft/CMakeFiles/ft.dir/all
 	$(MAKE) -f CMakeFiles/rtv.dir/build.make CMakeFiles/rtv.dir/depend
 	$(MAKE) -f CMakeFiles/rtv.dir/build.make CMakeFiles/rtv.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/vvoytenk/CLionProjects/rtv/cmake-build-debug/CMakeFiles --progress-num=61,62,63,64,65,66,67,68,69,70,71,72 "Built target rtv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/vvoytenk/CLionProjects/rtv/cmake-build-debug/CMakeFiles --progress-num=61,62,63,64,65,66,67,68,69,70,71,72,73,74 "Built target rtv"
 .PHONY : CMakeFiles/rtv.dir/all
 
 # Include target in all.
@@ -81,7 +81,7 @@ all: CMakeFiles/rtv.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/rtv.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/vvoytenk/CLionProjects/rtv/cmake-build-debug/CMakeFiles 72
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/vvoytenk/CLionProjects/rtv/cmake-build-debug/CMakeFiles 74
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rtv.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/vvoytenk/CLionProjects/rtv/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/rtv.dir/rule

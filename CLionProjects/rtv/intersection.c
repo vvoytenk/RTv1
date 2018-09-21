@@ -14,6 +14,8 @@
 
 #define SPHERE ((t_sphere *)obj->data)
 #define PLANE ((t_plane *)obj->data)
+#define CONE ((t_cone *)obj->data)
+#define CYL ((t_cylinder *)obj->data)
 
 double          closest_intersect(t_rtv *r, t_xyz dir)
 {
@@ -31,20 +33,10 @@ double          closest_intersect(t_rtv *r, t_xyz dir)
 			intersect_sphere(r, dir, &(r->scene.obj[i]), &tmp);
 		if (r->scene.obj[i].type == 2)
 			intersect_plane(r, dir, &(r->scene.obj[i]), &tmp);
-//		if (r->scene.obj->type == 3)
-//			t = intersect_cone(r, dir, r->scene.obj[i]);
-//		if (r->scene.obj->type == 4)
-//			t = intersect_cylinder(r, dir, r->scene.obj[i]);
-//		if (t.x < closest_t && t_min <= t.x && t.x <= t_max)
-//		{
-//			closest_t = t.x;
-//			r->scene.tmp = &(r->scene.obj[i]);
-//		}
-//		if (t.y < closest_t && t_min <= t.y && t.y <= t_max)
-//		{
-//			closest_t = t.y;
-//			r->scene.tmp = &(r->scene.obj[i]);
-//		}
+		if (r->scene.obj->type == 3)
+			intersect_cone(r, dir, &(r->scene.obj[i]), &tmp);
+		if (r->scene.obj->type == 4)
+			intersect_cylinder(r, dir, &(r->scene.obj[i]), &tmp);
 		if (tmp < closest_t && r->scene.obj->t_min <= tmp && tmp <= r->scene.obj->t_max)
 		{
 			closest_t = tmp;
@@ -53,6 +45,68 @@ double          closest_intersect(t_rtv *r, t_xyz dir)
 
 	}
 	return (closest_t);
+}
+
+void        intersect_cylinder(t_rtv *r, t_xyz d, t_object *obj, double *closest_t)
+{
+    double	dis;
+    t_xyz   k;
+    t_xyz   t;
+    t_xyz   oc;
+
+    if (CYL)
+    {
+		oc = vec_dif(r->scene.cam.pos, CYL->pos);
+		k.x = vec_scalar(d, d) - pow(vec_scalar(d, CYL->dir), 2);
+		k.y = 2 * (vec_scalar(d, oc) - vec_scalar(d, CYL->dir) * vec_scalar(oc, CYL->dir));
+		k.z = vec_scalar(oc, oc) - pow(vec_scalar(oc, CYL->dir), 2) - pow(CYL->radius, 2);
+		dis = k.y * k.y - 4 * k.x * k.z;
+		if (dis < 0)
+			t = vec_new(-1, -1, 0);
+		else
+			t = vec_new((-k.y + sqrt(dis)) / (2 * k.x), (-k.y - sqrt(dis)) / (2 * k.x), 0);
+		if (t.x < *closest_t && r->scene.obj->t_min <= t.x && t.x <= r->scene.obj->t_max) {
+			*closest_t = t.x;
+			r->scene.tmp = obj;
+		}
+		if (t.y < *closest_t && r->scene.obj->t_min <= t.y && t.y <= r->scene.obj->t_max) {
+			*closest_t = t.y;
+			r->scene.tmp = obj;
+		}
+	}
+}
+
+void        intersect_cone(t_rtv *r, t_xyz dir, t_object *obj, double *closest_t)
+{
+	double	dis;
+	t_xyz   k;
+	t_xyz   t;
+	t_xyz   oc;
+
+    if (CONE)
+    {
+        oc = vec_dif(r->scene.cam.pos, CONE->pos);
+        k.x = vec_scalar(dir, dir) - (1 + CONE->angle * CONE->angle)
+                                     * pow(vec_scalar(dir, CONE->dir), 2);
+        k.y = 2 * (vec_scalar(dir, oc) - (1 + CONE->angle * CONE->angle)
+                                         * vec_scalar(dir, CONE->dir) * vec_scalar(oc, CONE->dir));
+        k.z = vec_scalar(oc, oc) - (1 + CONE->angle * CONE->angle)
+                                   * pow(vec_scalar(oc, CONE->dir), 2);
+        dis = k.y * k.y - 4 * k.x * k.z;
+        if (dis < 0)
+            t = vec_new(-1, -1, 0);
+        else
+            t = vec_new((-k.y + sqrt(dis)) / (2 * k.x), (-k.y - sqrt(dis)) / (2 * k.x), 0);
+        if (t.x < *closest_t && r->scene.obj->t_min <= t.x && t.x <= r->scene.obj->t_max) {
+            *closest_t = t.x;
+            r->scene.tmp = obj;
+        }
+        if (t.y < *closest_t && r->scene.obj->t_min <= t.y && t.y <= r->scene.obj->t_max) {
+            *closest_t = t.y;
+            r->scene.tmp = obj;
+        }
+//        printf("%f\n", *closest_t);
+    }
 }
 
 void		intersect_plane(t_rtv *r, t_xyz dir, t_object *obj, double *closest_t)
@@ -78,13 +132,6 @@ void		intersect_plane(t_rtv *r, t_xyz dir, t_object *obj, double *closest_t)
 	}
 }
 
-//double		equation(t_xyz k)
-//{
-//	double 	closest_t;
-//
-//
-//	return (closest_t);
-//}
 void		intersect_sphere(t_rtv *r, t_xyz d, t_object *obj, double *closest_t)
 {
 	double dis;

@@ -10,6 +10,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/rtv.dir/other.c.o"
   "CMakeFiles/rtv.dir/scene2.c.o"
   "CMakeFiles/rtv.dir/intersection.c.o"
+  "CMakeFiles/rtv.dir/scene3.c.o"
+  "CMakeFiles/rtv.dir/scene4.c.o"
   "rtv.pdb"
   "rtv"
 )

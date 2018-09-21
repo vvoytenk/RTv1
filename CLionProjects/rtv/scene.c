@@ -22,8 +22,10 @@ int     scene(char *arg, t_rtv *r)
         scene1(r);
     if (n == 2)
         scene2(r);
-//  if (n == 3)
-//        scene3(r);
+    if (n == 3)
+        scene3(r);
+    if (n == 4)
+        scene4(r);
     if (!render(r))
         return (0);
     return (1);
@@ -42,5 +44,21 @@ int     scene2(t_rtv *r)
     init_cam2(&(r->scene.cam));
     init_light2(r->scene.light);
     init_obj2(r->scene.obj);
+    return (1);
+}
+
+int     scene3(t_rtv *r)
+{
+    init_cam3(&(r->scene.cam));
+    init_light3(r->scene.light);
+    init_obj3(r->scene.obj);
+    return (1);
+}
+
+int     scene4(t_rtv *r)
+{
+    init_cam4(&(r->scene.cam));
+    init_light4(r->scene.light);
+    init_obj4(r->scene.obj);
     return (1);
 }

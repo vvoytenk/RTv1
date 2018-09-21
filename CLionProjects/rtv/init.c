@@ -43,3 +43,26 @@ t_plane         *init_plane(t_xyz point, t_xyz normal)
     plane->point = point;
     return (plane);
 }
+
+t_cone          *init_cone(t_xyz pos, t_xyz dir_c, double angle)
+{
+    t_cone      *cone;
+
+    cone = (t_cone *)malloc(sizeof(t_cone));
+    cone->angle = tan(angle);
+    cone->dir = vec_norm(dir_c);
+    cone->pos = pos;
+
+    return(cone);
+}
+
+t_cylinder      *init_cylinder(t_xyz pos, t_xyz dir, double radius)
+{
+    t_cylinder  *cyl;
+
+    cyl = (t_cylinder *)malloc(sizeof(t_cylinder));
+    cyl->dir = vec_norm(dir);
+    cyl->pos = pos;
+    cyl->radius = radius;
+    return(cyl);
+}

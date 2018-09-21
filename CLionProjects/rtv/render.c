@@ -13,6 +13,8 @@
 #include "rtv.h"
 
 #define PLANE ((t_plane *)obj->data)
+#define CONE ((t_cone *)obj->data)
+#define CYL ((t_cylinder *)obj->data)
 
 int             render(t_rtv *r)
 {
@@ -55,10 +57,20 @@ int 	get_color(t_object *obj, t_xyz d, t_rtv *r, double closest_t)
 		return (get_color_sphere(obj, d, r, closest_t));
 	if (r->scene.obj->type == 2)
 		return (get_color_plane(obj, d, r, closest_t));
-//	if (r->scene.obj->type == 3)
-//		get_color_cone(obj, d, r, closest_t);
-//	if (r->scene.obj->type == 4)
-//		get_color_cylinder(obj, d, r, closest_t);
+	if (r->scene.obj->type == 3)
+		return (get_color_cone(obj, d, r, closest_t));
+	if (r->scene.obj->type == 4)
+		return(get_color_cylinder(obj, d, r, closest_t));
+}
+
+int     get_color_cylinder(t_object *obj, t_xyz d, t_rtv *r, double closest_t)
+{
+    double a;
+
+    a = vec_scalar(d, CYL->dir) * closest_t + vec_scalar(vec_dif(r->scene.cam.pos, CYL->pos), CYL->dir);
+    obj->intersect = vec_sum(r->scene.cam.pos, vec_mult(closest_t, d));
+    obj->normal = vec_norm(vec_dif(vec_dif(obj->intersect, CYL->pos), vec_mult(a, CYL->dir)));
+    return (convert_color(obj->color, lightning_sp(d, r, obj)));
 }
 
 int 	get_color_plane(t_object *obj, t_xyz d, t_rtv *r, double closest_t)
@@ -77,6 +89,17 @@ int    get_color_sphere(t_object *obj, t_xyz d, t_rtv *r, double closest_t)
     return (convert_color(obj->color, lightning_sp(vec_mult(-1, d), r, obj)));
 }
 
+int     get_color_cone(t_object *obj, t_xyz d, t_rtv *r, double closest_t)
+{
+    double a;
+
+    a = vec_scalar(d, CONE->dir) * closest_t + vec_scalar(vec_dif(r->scene.cam.pos, CONE->pos), CONE->dir);
+    obj->intersect = vec_sum(r->scene.cam.pos, vec_mult(closest_t, d));;
+    obj->normal = vec_norm(vec_dif(vec_dif(obj->intersect, r->scene.cam.pos),
+            vec_mult((1 + CONE->angle * CONE->angle) * a, CONE->dir)));
+    return (convert_color(obj->color, lightning_sp(d, r, obj)));
+}
+
 double             lightning_sp(t_xyz d, t_rtv *r, t_object *obj)
 {
     double      intensity;
@@ -93,7 +116,7 @@ double             lightning_sp(t_xyz d, t_rtv *r, t_object *obj)
     {
         if (i == 0)
         {
-            l = vec_norm(vec_dif(r->scene.light[i].pos, obj->intersect));
+            l = vec_dif(r->scene.light[i].pos, obj->intersect);
             r->scene.obj->t_max = 1;
         }
         else if (i == 1)

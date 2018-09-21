@@ -49,12 +49,16 @@ typedef struct      s_plane
 
 typedef struct      s_cone
 {
-
+    t_xyz           pos;
+    t_xyz           dir;
+    double          angle;
 }                   t_cone;
 
 typedef struct      s_cylinder
 {
-
+    t_xyz           pos;
+    t_xyz           dir;
+    double          radius;
 }                   t_cylinder;
 
 typedef struct      s_sphere
@@ -121,17 +125,25 @@ void                init_cam1(t_cam *cam1);
 void                init_light1(t_light *light);
 t_sphere            *init_sphere(double x, double y, double z, double r);
 t_plane         	*init_plane(t_xyz point, t_xyz normal);
+t_cone              *init_cone(t_xyz pos, t_xyz dir_c, double angle);
+t_cylinder          *init_cylinder(t_xyz pos, t_xyz dir, double radius);
 void				init_light2(t_light    *light);
 void				init_cam2(t_cam *cam2);
 void				init_obj2(t_object *obj2);
-
-
+void                init_obj3(t_object *obj2);
+void                init_cam3(t_cam *cam2);
+void                init_light3(t_light    *light);
+void                init_obj4(t_object *obj2);
+void                init_cam4(t_cam *cam4);
+void                init_light4(t_light    *light);
 
 /*******************SCENE******************/
 
 int                 scene(char *arg, t_rtv *r);
 int                 scene1(t_rtv *r);
 int					scene2(t_rtv *r);
+int                 scene3(t_rtv *r);
+int                 scene4(t_rtv *r);
 
 
 
@@ -149,6 +161,8 @@ unsigned int		RgbToInt(int r, int g, int b);
 int					get_color(t_object *obj, t_xyz d, t_rtv *r, double closest_t);
 int                 get_color_sphere(t_object *obj, t_xyz d, t_rtv *r, double closest_t);
 int					get_color_plane(t_object *obj, t_xyz d, t_rtv *r, double closest_t);
+int                 get_color_cone(t_object *obj, t_xyz d, t_rtv *r, double closest_t);
+int                  get_color_cylinder(t_object *obj, t_xyz d, t_rtv *r, double closest_t);
 int                 convert_color(t_rgb color, double i);
 
 
@@ -170,9 +184,9 @@ double              closest_intersect(t_rtv *r, t_xyz dir);
 int                 trace_ray(t_rtv *r, t_xyz dir);
 void 		        intersect_sphere(t_rtv *r, t_xyz d, t_object *obj, double *closest_t);
 void				intersect_plane(t_rtv *r, t_xyz dir, t_object *obj, double *closest_t);
+void                intersect_cone(t_rtv *r, t_xyz dir, t_object *obj, double *closest_t);
+void                intersect_cylinder(t_rtv *r, t_xyz d, t_object *obj, double *closest_t);
 double              lightning_sp(t_xyz d, t_rtv *r, t_object *obj);
 
-/*****************OBJECTS******************/
 
-double		sphere(t_rtv *r, t_xyz dir, t_object *obj);
 #endif

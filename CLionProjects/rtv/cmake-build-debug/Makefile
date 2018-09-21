@@ -379,6 +379,60 @@ scene2.c.s:
 	$(MAKE) -f CMakeFiles/rtv.dir/build.make CMakeFiles/rtv.dir/scene2.c.s
 .PHONY : scene2.c.s
 
+scene3.o: scene3.c.o
+
+.PHONY : scene3.o
+
+# target to build an object file
+scene3.c.o:
+	$(MAKE) -f CMakeFiles/rtv.dir/build.make CMakeFiles/rtv.dir/scene3.c.o
+.PHONY : scene3.c.o
+
+scene3.i: scene3.c.i
+
+.PHONY : scene3.i
+
+# target to preprocess a source file
+scene3.c.i:
+	$(MAKE) -f CMakeFiles/rtv.dir/build.make CMakeFiles/rtv.dir/scene3.c.i
+.PHONY : scene3.c.i
+
+scene3.s: scene3.c.s
+
+.PHONY : scene3.s
+
+# target to generate assembly for a file
+scene3.c.s:
+	$(MAKE) -f CMakeFiles/rtv.dir/build.make CMakeFiles/rtv.dir/scene3.c.s
+.PHONY : scene3.c.s
+
+scene4.o: scene4.c.o
+
+.PHONY : scene4.o
+
+# target to build an object file
+scene4.c.o:
+	$(MAKE) -f CMakeFiles/rtv.dir/build.make CMakeFiles/rtv.dir/scene4.c.o
+.PHONY : scene4.c.o
+
+scene4.i: scene4.c.i
+
+.PHONY : scene4.i
+
+# target to preprocess a source file
+scene4.c.i:
+	$(MAKE) -f CMakeFiles/rtv.dir/build.make CMakeFiles/rtv.dir/scene4.c.i
+.PHONY : scene4.c.i
+
+scene4.s: scene4.c.s
+
+.PHONY : scene4.s
+
+# target to generate assembly for a file
+scene4.c.s:
+	$(MAKE) -f CMakeFiles/rtv.dir/build.make CMakeFiles/rtv.dir/scene4.c.s
+.PHONY : scene4.c.s
+
 usage.o: usage.c.o
 
 .PHONY : usage.o
@@ -470,6 +524,12 @@ help:
 	@echo "... scene2.o"
 	@echo "... scene2.i"
 	@echo "... scene2.s"
+	@echo "... scene3.o"
+	@echo "... scene3.i"
+	@echo "... scene3.s"
+	@echo "... scene4.o"
+	@echo "... scene4.i"
+	@echo "... scene4.s"
 	@echo "... usage.o"
 	@echo "... usage.i"
 	@echo "... usage.s"
